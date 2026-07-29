@@ -1,0 +1,26 @@
+name: Build and package VIRUSCAN plugin
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@v1
+    with:
+      plugin_name: viruscan
+      plugin_directory: viruscan
+      build_target: viruscan
+      plugin_library: viruscan
+      cmake_options: -DPLUGIN_VIRUSCAN=DYNAMIC
+      test_suite: viruscan
+      run_tests: ${{ startsWith(github.ref, 'refs/tags/v') }}
