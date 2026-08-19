@@ -493,7 +493,7 @@ maria_declare_plugin(viruscan)
   viruscan_table_init,
   nullptr,
   0x0100,
-  nullptr, nullptr, "1.0",
+  nullptr, nullptr, "0.2.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 }
 maria_declare_plugin_end;
