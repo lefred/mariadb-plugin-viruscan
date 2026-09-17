@@ -15,12 +15,18 @@ permissions:
 
 jobs:
   build:
-    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@v1
+    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@main
     with:
       plugin_name: viruscan
       plugin_directory: viruscan
       build_target: viruscan
       plugin_library: viruscan.so
+
+      sdk_image: quay.io/lefred14/mariadb-plugin-build
+        mariadb_versions: |
+          13.0.2
+          13.1.1
+
       cmake_options: -DPLUGIN_VIRUSCAN=DYNAMIC
       test_suite: viruscan
       run_tests: false
