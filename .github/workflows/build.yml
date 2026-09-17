@@ -27,6 +27,6 @@ jobs:
           13.0.2
           13.1.1
 
-      cmake_options: -DPLUGIN_VIRUSCAN=DYNAMIC
+      cmake_options: -DPLUGIN_VIRUSCAN=DYNAMIC -DWITH_SSL=system
       test_suite: viruscan
       run_tests: false
